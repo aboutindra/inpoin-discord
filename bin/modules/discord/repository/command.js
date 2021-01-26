@@ -1,6 +1,7 @@
 require('dotenv').config()
 const Discord = require('discord.js');
 const discord = require('../../../../bin/helpers/in-memory-databases/database').get(process.env.DISCORD_INDEX)
+console.log(discord)
 
 class Command{
   constructor() {
@@ -8,7 +9,7 @@ class Command{
   }
   async sendBug(serviceName, errorMessage, fileLocation, functionName, bugAppeared){
     let exampleEmbed;
-    const channel = this.discord.channels.cache.find(x => x.id == "799496432784244746") // Kirim ke ID Channel bugCatcher
+    const channel = discord.channels.cache.find(x => x.id == "799496432784244746") // Kirim ke ID Channel bugCatcher
     exampleEmbed = new Discord.MessageEmbed()
       .setColor('#ff1d1d')
       .setTitle(`${serviceName}`)
@@ -28,7 +29,7 @@ class Command{
   }
   async sendLog(idBug, serviceName, errorMessage, fileLocation, functionName, bugAppeared, level){
     let exampleEmbed;
-    const channel = this.discord.channels.cache.find(x => x.id == "799498228693205003") // Kirim ke ID Channel bugCatcher
+    const channel = discord.channels.cache.find(x => x.id == "799498228693205003") // Kirim ke ID Channel bugCatcher
     if(level === 0){
       exampleEmbed = new Discord.MessageEmbed()
         .setColor('#c1c1c1')
