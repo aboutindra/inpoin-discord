@@ -22,7 +22,7 @@ class Command{
       .setTimestamp()
       .setFooter('IMOET - Inpoin Manager Operation Bot', 'https://cdn.mee6.xyz/guild-images/799492009206611978/90ab6c96ad5535175bbf1a585d5fb55accd63d3e47a49afd4523fa43484e784e.png');
 
-    await channel.send(exampleEmbed)
+    return await channel.send(exampleEmbed)
   }
   async sendLog(idBug, serviceName, errorMessage, fileLocation, functionName, bugAppeared, level){
     let exampleEmbed;
@@ -59,7 +59,7 @@ class Command{
         .setTimestamp()
         .setFooter('IMOET - Inpoin Manager Operation Bot', 'https://cdn.mee6.xyz/guild-images/799492009206611978/90ab6c96ad5535175bbf1a585d5fb55accd63d3e47a49afd4523fa43484e784e.png');
     }
-    await channel.send(exampleEmbed)
+    return await channel.send(exampleEmbed)
   }
 }
 

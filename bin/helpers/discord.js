@@ -9,7 +9,6 @@ const connection = () => {
 
 async function createConnectionClient(){
   setTimeout(() => {
-    console.log(client.channels.cache)
     for (const connection of connectionPool) {
       try {
         connection.client = client

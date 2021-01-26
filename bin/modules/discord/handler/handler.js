@@ -1,8 +1,8 @@
 const commandHandler = require('../repository/command_handler');
 class handlers {
 
-  bugCatcher(data) {
-    const {idBug, serviceName, errorMessage, fileLocation, functionName} = data;
+  bugCatcher(idBug, serviceName, errorMessage, fileLocation, functionName) {
+    const data = {idBug, serviceName, errorMessage, fileLocation, functionName};
     let isEmpty = false;
     for(var key in data){
       if(data[key] === "" || data[key] === undefined || data[key] === null){
@@ -16,8 +16,8 @@ class handlers {
     )
   }
 
-  hoursPatroly(data) {
-    const {idBug, serviceName, errorMessage, fileLocation, functionName, level} = data;
+  hoursPatroly(idBug, serviceName, errorMessage, fileLocation, functionName, level) {
+    const data = {idBug, serviceName, errorMessage, fileLocation, functionName, level};
     let isEmpty = false;
     for(var key in data){
       if(data[key] === "" || data[key] === undefined || data[key] === null){
