@@ -10,16 +10,16 @@ const bugCatcher = (idBug, serviceName, errorMessage, fileLocation, functionName
     if (now - past >= 600) { //Cek apakah kelewat 10 menit
       const formatData = { "idBug" : idBug, "appeared" : 0, "firstAppeared" : new Date() }
       InMemDB.set(idBug, formatData)
-      return Domain.bugCatcher(serviceName, errorMessage, fileLocation, functionName, 0)
+      return Domain.bugCatcher(idBug, serviceName, errorMessage, fileLocation, functionName, 0)
     } else {
       const formatData = { "idBug" : idBug, "appeared" : theBug.appeared + 1, "firstAppeared" : theBug.firstAppeared }
       InMemDB.set(idBug, formatData)
-      return Domain.bugCatcher(serviceName, errorMessage, fileLocation, functionName, theBug.appeared + 1, codeError)
+      return Domain.bugCatcher(idBug, serviceName, errorMessage, fileLocation, functionName, theBug.appeared + 1, codeError)
     }
   } else {
     const formatData = { "idBug" : idBug, "appeared" : 0, "firstAppeared" : new Date() }
     InMemDB.set(idBug, formatData)
-    return Domain.bugCatcher(serviceName, errorMessage, fileLocation, functionName, 0, codeError)
+    return Domain.bugCatcher(idBug, serviceName, errorMessage, fileLocation, functionName, 0, codeError)
   }
 }
 
@@ -31,16 +31,16 @@ const hoursPatroly = (idLog, serviceName, responseMessage, fileLocation, functio
     if (now - past >= 600) { //kalo kelewat 10 menit
       const formatData = { "idLog" : idLog, "appeared" : 0, "firstAppeared" : new Date() }
       InMemDB.set(idLog, formatData)
-      return Domain.hoursPatroly(serviceName, responseMessage, fileLocation, functionName, 0, level, codeResponse)
+      return Domain.hoursPatroly(idLog, serviceName, responseMessage, fileLocation, functionName, 0, level, codeResponse)
     } else { //kalo belum kelewat 10 menit
       const formatData = { "idLog" : idLog, "appeared" : theBug.appeared + 1, "firstAppeared" : theBug.firstAppeared }
       InMemDB.set(idLog, formatData)
-      return Domain.hoursPatroly(serviceName, responseMessage, fileLocation, functionName, theBug.appeared + 1, level, codeResponse)
+      return Domain.hoursPatroly(idLog, serviceName, responseMessage, fileLocation, functionName, theBug.appeared + 1, level, codeResponse)
     }
   } else { //kalo bug nya belum ada
     const formatData = { "idLog" : idLog, "appeared" : 0, "firstAppeared" : new Date() }
     InMemDB.set(idLog, formatData)
-    return Domain.hoursPatroly(serviceName, responseMessage, fileLocation, functionName, 0, level, codeResponse)
+    return Domain.hoursPatroly(idLog, serviceName, responseMessage, fileLocation, functionName, 0, level, codeResponse)
   }
 }
 
