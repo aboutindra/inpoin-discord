@@ -21,14 +21,14 @@ class Command{
       .setTitle(`${serviceName}`)
       .setAuthor('BUG!', 'https://cdn.mee6.xyz/guild-images/799492009206611978/90ab6c96ad5535175bbf1a585d5fb55accd63d3e47a49afd4523fa43484e784e.png', 'https://discord.js.org')
       .setDescription("`" + "`" + "`" + `${errorMessage}` + "`" + "`" + "`" + ` | Happened at ${idBug}` + '\n<@&800991071655952384>' )
-      .setThumbnail('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4b-FqY5I7lzm6QyMlhCvlP89JYs2RncxjcA&usqp=CAU')
+      .setThumbnail('https://is1-ssl.mzstatic.com/image/thumb/Purple118/v4/f7/20/bd/f720bdc2-e744-6eb7-ccfc-6b9c98377386/source/512x512bb.jpg')
       .addFields(
         { name: 'File Location', value: `${fileLocation}`, inline: true },
         { name: 'Function Name', value: `${functionName}`, inline: true },
         { name: 'Code Response', value: `${codeError}`, inline: true }
       )
       .addField('Bug Appeared in 10 Minutes', bugAppeared, true)
-      .setImage('https://is1-ssl.mzstatic.com/image/thumb/Purple118/v4/f7/20/bd/f720bdc2-e744-6eb7-ccfc-6b9c98377386/source/512x512bb.jpg')
+      .setImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4b-FqY5I7lzm6QyMlhCvlP89JYs2RncxjcA&usqp=CAU')
       .setTimestamp()
       .setFooter('IMOET - Inpoin Manager Operation Bot', 'https://cdn.mee6.xyz/guild-images/799492009206611978/90ab6c96ad5535175bbf1a585d5fb55accd63d3e47a49afd4523fa43484e784e.png');
 
@@ -43,14 +43,14 @@ class Command{
         .setTitle(`${serviceName}`)
         .setAuthor('LOG!', 'https://cdn.mee6.xyz/guild-images/799492009206611978/90ab6c96ad5535175bbf1a585d5fb55accd63d3e47a49afd4523fa43484e784e.png', 'https://discord.js.org')
         .setDescription("`" + "`" + "`" + `${errorMessage}` + "`" + "`" + "`" + ` | Happened at ${idLog}` +'\n<@&800991071655952384>' )
-        .setThumbnail('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4b-FqY5I7lzm6QyMlhCvlP89JYs2RncxjcA&usqp=CAU')
+        .setThumbnail('https://is1-ssl.mzstatic.com/image/thumb/Purple118/v4/f7/20/bd/f720bdc2-e744-6eb7-ccfc-6b9c98377386/source/512x512bb.jpg')
         .addFields(
           { name: 'File Location', value: `${fileLocation}`, inline: true },
           { name: 'Function Name', value: `${functionName}`, inline: true },
           { name: 'Code Response', value: `${codeResponse}`, inline: true }
         )
         .addField('Log Appeared in 10 Minutes', bugAppeared, true)
-        .setImage('https://is1-ssl.mzstatic.com/image/thumb/Purple118/v4/f7/20/bd/f720bdc2-e744-6eb7-ccfc-6b9c98377386/source/512x512bb.jpg')
+        .setImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4b-FqY5I7lzm6QyMlhCvlP89JYs2RncxjcA&usqp=CAU')
         .setTimestamp()
         .setFooter('IMOET - Inpoin Manager Operation Bot', 'https://cdn.mee6.xyz/guild-images/799492009206611978/90ab6c96ad5535175bbf1a585d5fb55accd63d3e47a49afd4523fa43484e784e.png');
 
@@ -60,14 +60,14 @@ class Command{
         .setTitle(`${serviceName}`)
         .setAuthor('LOG!', 'https://cdn.mee6.xyz/guild-images/799492009206611978/90ab6c96ad5535175bbf1a585d5fb55accd63d3e47a49afd4523fa43484e784e.png', 'https://discord.js.org')
         .setDescription("`" + "`" + "`" + `${errorMessage}` + "`" + "`" + "`"  + ` | Happened at ${idLog}` + '\n<@&800991071655952384>' )
-        .setThumbnail('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4b-FqY5I7lzm6QyMlhCvlP89JYs2RncxjcA&usqp=CAU')
+        .setThumbnail('https://is1-ssl.mzstatic.com/image/thumb/Purple118/v4/f7/20/bd/f720bdc2-e744-6eb7-ccfc-6b9c98377386/source/512x512bb.jpg')
         .addFields(
           { name: 'File Location', value: `${fileLocation}`, inline: true },
           { name: 'Function Name', value: `${functionName}`, inline: true },
           { name: 'Code Response', value: `${codeResponse}`, inline: true }
         )
         .addField('Log Appeared in 10 Minutes', bugAppeared, true)
-        .setImage('https://i.imgur.com/wSTFkRM.png')
+        .setImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4b-FqY5I7lzm6QyMlhCvlP89JYs2RncxjcA&usqp=CAU')
         .setTimestamp()
         .setFooter('IMOET - Inpoin Manager Operation Bot', 'https://cdn.mee6.xyz/guild-images/799492009206611978/90ab6c96ad5535175bbf1a585d5fb55accd63d3e47a49afd4523fa43484e784e.png');
     }
