@@ -6,7 +6,6 @@ let discord;
 if(!loaded){
   setTimeout(() => {
     discord = require('../../../../bin/helpers/discord').getConnection(process.env.DISCORD_INDEX)
-    console.log("Ini discord nya : ", discord)
     loaded++
   }, 3500)
 }
