@@ -1,5 +1,6 @@
 'use strict';
 require('./bin/helpers/discord').init();
+const handler = require('./bin/modules/discord/handler/handler')
 module.exports = {
-  channel : new require('./bin/modules/discord/handler/handler')
+  channel : new handler()
 }
