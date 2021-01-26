@@ -1,10 +1,15 @@
 require('dotenv').config()
 const Discord = require('discord.js');
-const loaded = 0;
+let loaded = 0;
 let discord;
-setTimeout(() => {
-  discord = require('../../../../bin/helpers/in-memory-databases/database').get(process.env.DISCORD_INDEX)
-}, 3500)
+
+if(!loaded){
+  setTimeout(() => {
+    discord = require('../../../../bin/helpers/discord').getConnection(process.env.DISCORD_INDEX)
+    console.log("Ini discord nya : ", discord)
+    loaded++
+  }, 3500)
+}
 
 class Command{
 
@@ -15,7 +20,7 @@ class Command{
       .setColor('#ff1d1d')
       .setTitle(`${serviceName}`)
       .setAuthor('BUG!', 'https://cdn.mee6.xyz/guild-images/799492009206611978/90ab6c96ad5535175bbf1a585d5fb55accd63d3e47a49afd4523fa43484e784e.png', 'https://discord.js.org')
-      .setDescription(``` ${errorMessage} ``` + ` | Happened at ${idBug}` + '\n<@&800991071655952384>' )
+      .setDescription("`" + "`" + "`" + `${errorMessage}` + "`" + "`" + "`" + ` | Happened at ${idBug}` + '\n<@&800991071655952384>' )
       .setThumbnail('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4b-FqY5I7lzm6QyMlhCvlP89JYs2RncxjcA&usqp=CAU')
       .addFields(
         { name: 'File Location', value: `${fileLocation}`, inline: true },
@@ -37,7 +42,7 @@ class Command{
         .setColor('#c1c1c1')
         .setTitle(`${serviceName}`)
         .setAuthor('LOG!', 'https://cdn.mee6.xyz/guild-images/799492009206611978/90ab6c96ad5535175bbf1a585d5fb55accd63d3e47a49afd4523fa43484e784e.png', 'https://discord.js.org')
-        .setDescription(``` ${errorMessage} ``` + ` | Happened at ${idLog}` +'\n<@&800991071655952384>' )
+        .setDescription("`" + "`" + "`" + `${errorMessage}` + "`" + "`" + "`" + ` | Happened at ${idLog}` +'\n<@&800991071655952384>' )
         .setThumbnail('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4b-FqY5I7lzm6QyMlhCvlP89JYs2RncxjcA&usqp=CAU')
         .addFields(
           { name: 'File Location', value: `${fileLocation}`, inline: true },
@@ -54,7 +59,7 @@ class Command{
         .setColor('#c1c1c1')
         .setTitle(`${serviceName}`)
         .setAuthor('LOG!', 'https://cdn.mee6.xyz/guild-images/799492009206611978/90ab6c96ad5535175bbf1a585d5fb55accd63d3e47a49afd4523fa43484e784e.png', 'https://discord.js.org')
-        .setDescription(``` ${errorMessage} ``` + ` | Happened at ${idLog}` + '\n<@&800991071655952384>' )
+        .setDescription("`" + "`" + "`" + `${errorMessage}` + "`" + "`" + "`"  + ` | Happened at ${idLog}` + '\n<@&800991071655952384>' )
         .setThumbnail('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4b-FqY5I7lzm6QyMlhCvlP89JYs2RncxjcA&usqp=CAU')
         .addFields(
           { name: 'File Location', value: `${fileLocation}`, inline: true },
