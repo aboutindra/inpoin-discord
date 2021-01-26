@@ -5,12 +5,12 @@ class Domain{
   constructor(InMemDB) {
     this.database = InMemDB;
   }
-  async bugCatcher(serviceName, errorMessage, fileLocation, functionName, bugAppeared){
-    return Command.sendBug(serviceName, errorMessage, fileLocation, functionName, bugAppeared)
+  async bugCatcher(serviceName, errorMessage, fileLocation, functionName, bugAppeared, codeError){
+    return Command.sendBug(serviceName, errorMessage, fileLocation, functionName, bugAppeared, codeError)
   }
 
-  async hoursPatroly( serviceName, errorMessage, fileLocation, functionName, bugAppeared, level){
-   return Command.sendLog(serviceName, errorMessage, fileLocation, functionName, bugAppeared, level)
+  async hoursPatroly( serviceName, errorMessage, fileLocation, functionName, bugAppeared, level, codeResponse){
+   return Command.sendLog(serviceName, errorMessage, fileLocation, functionName, bugAppeared, level, codeResponse)
   }
 
 }

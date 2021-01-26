@@ -12,6 +12,7 @@ async function createConnectionClient(){
     for (const connection of connectionPool) {
       try {
         connection.client = client
+        console.log("Success Connect to Discord")
         /* istanbul ignore next */
         connection.client.on('error', (error) => {
           console.error('discord error');
