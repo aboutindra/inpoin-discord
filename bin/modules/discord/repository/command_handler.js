@@ -9,16 +9,16 @@ const bugCatcher = (idBug, serviceName, errorMessage, fileLocation, functionName
     const past = (new Date(theBug.firstAppeared) / 1000)
     if (now - past >= 600) { //Cek apakah kelewat 10 menit
       const formatData = { "idBug" : idBug, "appeared" : 0, "firstAppeared" : new Date() }
-      this.database.set(idBug, formatData)
+      InMemDB.set(idBug, formatData)
       return Domain.bugCatcher(serviceName, errorMessage, fileLocation, functionName, 0)
     } else {
       const formatData = { "idBug" : idBug, "appeared" : theBug.appeared + 1, "firstAppeared" : theBug.firstAppeared }
-      this.database.set(idBug, formatData)
+      InMemDB.set(idBug, formatData)
       return Domain.bugCatcher(serviceName, errorMessage, fileLocation, functionName, theBug.appeared + 1)
     }
   } else {
     const formatData = { "idBug" : idBug, "appeared" : 0, "firstAppeared" : new Date() }
-    this.database.set(idBug, formatData)
+    InMemDB.set(idBug, formatData)
     return Domain.bugCatcher(serviceName, errorMessage, fileLocation, functionName, 0)
   }
 }
@@ -30,16 +30,16 @@ const hoursPatroly = (idBug, serviceName, errorMessage, fileLocation, functionNa
     const past = (new Date(theBug.firstAppeared) / 1000)
     if (now - past >= 600) { //kalo kelewat 10 menit
       const formatData = { "idBug" : idBug, "appeared" : 0, "firstAppeared" : new Date() }
-      this.database.set(idBug, formatData)
+      InMemDB.set(idBug, formatData)
       return Domain.hoursPatroly(serviceName, errorMessage, fileLocation, functionName, 0, level)
     } else { //kalo belum kelewat 10 menit
       const formatData = { "idBug" : idBug, "appeared" : theBug.appeared + 1, "firstAppeared" : theBug.firstAppeared }
-      this.database.set(idBug, formatData)
+      InMemDB.set(idBug, formatData)
       return Domain.hoursPatroly(serviceName, errorMessage, fileLocation, functionName, theBug.appeared + 1, level)
     }
   } else { //kalo bug nya belum ada
     const formatData = { "idBug" : idBug, "appeared" : 0, "firstAppeared" : new Date() }
-    this.database.set(idBug, formatData)
+    InMemDB.set(idBug, formatData)
     return Domain.hoursPatroly(serviceName, errorMessage, fileLocation, functionName, 0, level)
   }
 }
