@@ -1,7 +1,10 @@
 require('dotenv').config()
 const Discord = require('discord.js');
-const discord = require('../../../../bin/helpers/in-memory-databases/database').get(process.env.DISCORD_INDEX)
-console.log(discord)
+const loaded = 0;
+let discord;
+setTimeout(() => {
+  discord = require('../../../../bin/helpers/in-memory-databases/database').get(process.env.DISCORD_INDEX)
+}, 3500)
 
 class Command{
 
