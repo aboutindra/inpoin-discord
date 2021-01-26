@@ -1,7 +1,9 @@
+require('dotenv').config()
 const Discord = require('discord.js');
+const discord = require('../../../../bin/helpers/in-memory-databases/database').get(process.env.DISCORD_INDEX)
 
 class Command{
-  constructor(discord) {
+  constructor() {
     this.discord = discord;
   }
   async sendBug(serviceName, errorMessage, fileLocation, functionName, bugAppeared){
