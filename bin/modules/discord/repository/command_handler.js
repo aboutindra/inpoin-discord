@@ -17,9 +17,9 @@ const bugCatcher = (idBug, serviceName, errorMessage, fileLocation, functionName
       return Domain.bugCatcher(serviceName, errorMessage, fileLocation, functionName, theBug.appeared + 1)
     }
   } else {
-    const formatData = { "idBug" : idBug, "appeared" : theBug.appeared + 1, "firstAppeared" : theBug.firstAppeared }
+    const formatData = { "idBug" : idBug, "appeared" : 0, "firstAppeared" : new Date() }
     this.database.set(idBug, formatData)
-    return Domain.bugCatcher(serviceName, errorMessage, fileLocation, functionName, theBug.appeared + 1)
+    return Domain.bugCatcher(serviceName, errorMessage, fileLocation, functionName, 0)
   }
 }
 
