@@ -1,8 +1,8 @@
 {
   "name": "inpoin-discord",
-  "version": "0.0.12",
+  "version": "0.0.14",
   "dependencies": {
-    "discord.js": "^12.5.1",
+    "discord.js": "11.6.4",
     "dotenv": "^8.2.0"
   },
   "description": "Internal use for inpoin error notifying discord bot",
