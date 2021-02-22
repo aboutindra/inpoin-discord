@@ -13,6 +13,7 @@ if(!loaded){
 class Command{
 
   async sendBug(idBug, serviceName, errorMessage, fileLocation, functionName, bugAppeared ,codeError){
+    errorMessage = (typeof errorMessage === 'object') ? JSON.stringify(errorMessage) : errorMessage;
     let exampleEmbed;
     const channel = discord.channels.find(x => x.id == "799496432784244746") // Kirim ke ID Channel bugCatcher
     exampleEmbed = new Discord.RichEmbed()
@@ -32,6 +33,7 @@ class Command{
     return await channel.send(exampleEmbed)
   }
   async sendLog(idLog, serviceName, errorMessage, fileLocation, functionName, bugAppeared, level, codeResponse){
+    errorMessage = (typeof errorMessage === 'object') ? JSON.stringify(errorMessage) : errorMessage;
     let exampleEmbed;
     const channel = discord.channels.find(x => x.id == "799498228693205003") // Kirim ke ID Channel bugCatcher
     if(level === 0){
