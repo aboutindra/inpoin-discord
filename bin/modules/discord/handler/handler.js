@@ -1,8 +1,8 @@
 const commandHandler = require('../repository/command_handler');
 class handlers {
 
-  bugCatcher(idBug, serviceName, errorMessage, fileLocation, functionName, codeError) {
-    const data = {idBug, serviceName, errorMessage, fileLocation, functionName, codeError};
+  bugCatcher(idBug, errorMessage, fileLocation, functionName, codeError) {
+    const data = {idBug, errorMessage, fileLocation, functionName, codeError};
     let isEmpty = false;
     for(var key in data){
       if(data[key] === "" || data[key] === undefined || data[key] === null){
@@ -11,13 +11,13 @@ class handlers {
       }
     }
     return ((!isEmpty) ?
-        commandHandler.bugCatcher(idBug, serviceName, errorMessage, fileLocation, functionName, codeError) :
+        commandHandler.bugCatcher(idBug, errorMessage, fileLocation, functionName, codeError) :
         "Please completed all field"
     )
   }
 
-  hoursPatroly(idLog, serviceName, responseMessage, fileLocation, functionName, level, codeResponse) {
-    const data = {idLog, serviceName, responseMessage, fileLocation, functionName, level, codeResponse};
+  hoursPatroly(idLog, responseMessage, fileLocation, functionName, level, codeResponse) {
+    const data = {idLog, responseMessage, fileLocation, functionName, level, codeResponse};
     let isEmpty = false;
     for(var key in data){
       if(data[key] === "" || data[key] === undefined || data[key] === null){
@@ -26,7 +26,7 @@ class handlers {
       }
     }
     return ((!isEmpty) ?
-      commandHandler.hoursPatroly(idLog, serviceName, responseMessage, fileLocation, functionName, level, codeResponse) :
+      commandHandler.hoursPatroly(idLog, responseMessage, fileLocation, functionName, level, codeResponse) :
       "Please completed all field"
     )
 

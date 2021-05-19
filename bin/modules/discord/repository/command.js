@@ -1,4 +1,5 @@
-require('dotenv').config()
+require('dotenv').config();
+const fs = require('fs');
 const Discord = require('discord.js');
 let loaded = 0;
 let discord;
@@ -10,15 +11,18 @@ if(!loaded){
   }, 3500)
 }
 
+const rootProjectDir = process.cwd();
+const readProjectNameFromPackage = JSON.parse(fs.readFileSync(rootProjectDir+'/package.json')).name+'-'+process.env.NODE_ENV;
+
 class Command{
 
-  async sendBug(idBug, serviceName, errorMessage, fileLocation, functionName, bugAppeared ,codeError){
+  async sendBug(idBug, errorMessage, fileLocation, functionName, bugAppeared ,codeError){
     errorMessage = (typeof errorMessage === 'object') ? JSON.stringify(errorMessage) : errorMessage;
     let exampleEmbed;
     const channel = discord.channels.find(x => x.id == "799496432784244746") // Kirim ke ID Channel bugCatcher
     exampleEmbed = new Discord.RichEmbed()
       .setColor('#ff1d1d')
-      .setTitle(`${serviceName}`)
+      .setTitle(`${readProjectNameFromPackage}`)
       .setAuthor('BUG!', 'https://cdn.mee6.xyz/guild-images/799492009206611978/90ab6c96ad5535175bbf1a585d5fb55accd63d3e47a49afd4523fa43484e784e.png', 'https://discord.js.org')
       .setDescription("`" + "`" + "`" + `${errorMessage}` + "`" + "`" + "`" + ` | Happened at ${idBug}` + '\n<@&800991071655952384>' )
       .setThumbnail('https://is1-ssl.mzstatic.com/image/thumb/Purple118/v4/f7/20/bd/f720bdc2-e744-6eb7-ccfc-6b9c98377386/source/512x512bb.jpg')
@@ -32,14 +36,14 @@ class Command{
 
     return await channel.send(exampleEmbed)
   }
-  async sendLog(idLog, serviceName, errorMessage, fileLocation, functionName, bugAppeared, level, codeResponse){
+  async sendLog(idLog, errorMessage, fileLocation, functionName, bugAppeared, level, codeResponse){
     errorMessage = (typeof errorMessage === 'object') ? JSON.stringify(errorMessage) : errorMessage;
     let exampleEmbed;
     const channel = discord.channels.find(x => x.id == "799498228693205003") // Kirim ke ID Channel bugCatcher
     if(level === 0){
       exampleEmbed = new Discord.RichEmbed()
         .setColor('#c1c1c1')
-        .setTitle(`${serviceName}`)
+        .setTitle(`${readProjectNameFromPackage}`)
         .setAuthor('LOG!', 'https://cdn.mee6.xyz/guild-images/799492009206611978/90ab6c96ad5535175bbf1a585d5fb55accd63d3e47a49afd4523fa43484e784e.png', 'https://discord.js.org')
         .setDescription("`" + "`" + "`" + `${errorMessage}` + "`" + "`" + "`" + ` | Happened at ${idLog}` +'\n<@&800991071655952384>' )
         .setThumbnail('https://is1-ssl.mzstatic.com/image/thumb/Purple118/v4/f7/20/bd/f720bdc2-e744-6eb7-ccfc-6b9c98377386/source/512x512bb.jpg')
@@ -54,7 +58,7 @@ class Command{
     } else {
       exampleEmbed = new Discord.RichEmbed()
         .setColor('#c1c1c1')
-        .setTitle(`${serviceName}`)
+        .setTitle(`${readProjectNameFromPackage}`)
         .setAuthor('LOG!', 'https://cdn.mee6.xyz/guild-images/799492009206611978/90ab6c96ad5535175bbf1a585d5fb55accd63d3e47a49afd4523fa43484e784e.png', 'https://discord.js.org')
         .setDescription("`" + "`" + "`" + `${errorMessage}` + "`" + "`" + "`"  + ` | Happened at ${idLog}` + '\n<@&800991071655952384>' )
         .setThumbnail('https://is1-ssl.mzstatic.com/image/thumb/Purple118/v4/f7/20/bd/f720bdc2-e744-6eb7-ccfc-6b9c98377386/source/512x512bb.jpg')
