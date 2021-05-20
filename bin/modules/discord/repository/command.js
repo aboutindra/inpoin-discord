@@ -24,7 +24,7 @@ class Command{
       channel = discord.channels.find(x => x.id == "799496432784244746")
     } else if(process.env.NODE_ENV === 'prod'){
       channel = discord.channels.find(x => x.id == "818324094352359445")
-    } // Kirim ke ID Channel bugCatcher
+    }// Kirim ke ID Channel bugCatcher
     exampleEmbed = new Discord.RichEmbed()
       .setColor('#ff1d1d')
       .setTitle(`${readProjectNameFromPackage}`)
@@ -46,9 +46,9 @@ class Command{
     let exampleEmbed;
     let channel;
     if(process.env.NODE_ENV === 'dev'){
-      channel = discord.channels.find(x => x.id == "799496432784244746")
+      channel = discord.channels.find(x => x.id == "799498228693205003")
     } else if(process.env.NODE_ENV === 'prod'){
-      channel = discord.channels.find(x => x.id == "818324094352359445")
+      channel = discord.channels.find(x => x.id == "844759302510215179")
     } // Kirim ke ID Channel bugCatcher
     if(level === 0){
       exampleEmbed = new Discord.RichEmbed()
