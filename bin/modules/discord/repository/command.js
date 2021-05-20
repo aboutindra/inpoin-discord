@@ -19,7 +19,12 @@ class Command{
   async sendBug(idBug, errorMessage, fileLocation, functionName, bugAppeared ,codeError){
     errorMessage = (typeof errorMessage === 'object') ? JSON.stringify(errorMessage) : errorMessage;
     let exampleEmbed;
-    const channel = discord.channels.find(x => x.id == "799496432784244746") // Kirim ke ID Channel bugCatcher
+    let channel;
+    if(process.env.NODE_ENV === 'dev'){
+      channel = discord.channels.find(x => x.id == "799496432784244746")
+    } else if(process.env.NODE_ENV === 'prod'){
+      channel = discord.channels.find(x => x.id == "818324094352359445")
+    } // Kirim ke ID Channel bugCatcher
     exampleEmbed = new Discord.RichEmbed()
       .setColor('#ff1d1d')
       .setTitle(`${readProjectNameFromPackage}`)
@@ -39,7 +44,12 @@ class Command{
   async sendLog(idLog, errorMessage, fileLocation, functionName, bugAppeared, level, codeResponse){
     errorMessage = (typeof errorMessage === 'object') ? JSON.stringify(errorMessage) : errorMessage;
     let exampleEmbed;
-    const channel = discord.channels.find(x => x.id == "799498228693205003") // Kirim ke ID Channel bugCatcher
+    let channel;
+    if(process.env.NODE_ENV === 'dev'){
+      channel = discord.channels.find(x => x.id == "799496432784244746")
+    } else if(process.env.NODE_ENV === 'prod'){
+      channel = discord.channels.find(x => x.id == "818324094352359445")
+    } // Kirim ke ID Channel bugCatcher
     if(level === 0){
       exampleEmbed = new Discord.RichEmbed()
         .setColor('#c1c1c1')
