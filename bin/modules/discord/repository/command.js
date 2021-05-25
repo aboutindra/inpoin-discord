@@ -17,7 +17,14 @@ const readProjectNameFromPackage = JSON.parse(fs.readFileSync(rootProjectDir+'/p
 class Command{
 
   async sendBug(idBug, errorMessage, fileLocation, functionName, bugAppeared ,codeError){
-    errorMessage = (typeof errorMessage === 'object') ? JSON.stringify(errorMessage) : errorMessage.toString();
+
+    const objRegex = /\[/;
+    if(objRegex.test(errorMessage)){
+      errorMessage = JSON.stringify(errorMessage)
+    } else {
+      errorMessage = errorMessage.toString();
+    }
+
     let exampleEmbed;
     let channel;
     if(process.env.NODE_ENV === 'dev'){
