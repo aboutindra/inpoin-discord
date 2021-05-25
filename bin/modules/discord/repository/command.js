@@ -17,7 +17,7 @@ const readProjectNameFromPackage = JSON.parse(fs.readFileSync(rootProjectDir+'/p
 class Command{
 
   async sendBug(idBug, errorMessage, fileLocation, functionName, bugAppeared ,codeError){
-    errorMessage = (typeof errorMessage === 'object') ? JSON.stringify(errorMessage) : errorMessage;
+    errorMessage = (typeof errorMessage === 'object') ? JSON.stringify(errorMessage) : errorMessage.toString();
     let exampleEmbed;
     let channel;
     if(process.env.NODE_ENV === 'dev'){
@@ -44,7 +44,7 @@ class Command{
     return await channel.send(exampleEmbed)
   }
   async sendLog(idLog, errorMessage, fileLocation, functionName, bugAppeared, level, codeResponse){
-    errorMessage = (typeof errorMessage === 'object') ? JSON.stringify(errorMessage) : errorMessage;
+    errorMessage = (typeof errorMessage === 'object') ? JSON.stringify(errorMessage) : errorMessage.toString();
     let exampleEmbed;
     let channel;
     if(process.env.NODE_ENV === 'dev'){
